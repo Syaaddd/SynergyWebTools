@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caesar Cipher</title>
+</head>
+<body>
+<h1>Caesar Cipher</h1>
+<form action="/caesar/encrypt" method="post">
+    <label for="text">Text to encrypt:</label>
+    <input type="text" id="text" name="text">
+    <label for="shift">Shift value:</label>
+    <input type="number" id="shift" name="shift">
+    <button type="submit">Encrypt</button>
+</form>
+<form action="/caesar/decrypt" method="post">
+    <label for="text">Text to decrypt:</label>
+    <input type="text" id="text" name="text">
+    <label for="shift">Shift value:</label>
+    <input type="number" id="shift" name="shift">
+    <button type="submit">Decrypt</button>
+</form>
+<p>Result: <span th:text="${result}"></span></p>
+<a href="/">Back to home</a>
+</body>
+</html>
