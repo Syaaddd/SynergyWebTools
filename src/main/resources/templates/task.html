@@ -2,28 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Task Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
 </head>
 <body>
-<h1>Task Manager</h1>
+<h1>Task List</h1>
 <form action="/task/add" method="post">
-    <label for="description">Task description:</label>
-    <input type="text" id="description" name="description">
+    <input type="text" name="description" placeholder="Enter task description">
     <button type="submit">Add Task</button>
 </form>
-<h2>Tasks</h2>
 <ul>
     <li th:each="task, stat : ${tasks}">
+        <span th:text="${task.description}"></span>
+        <span th:text="${task.completed ? ' (completed)' : ''}"></span>
         <form action="/task/complete" method="post">
-            <span th:text="${task}"></span>
-            <input type="hidden"
-                   name="taskId" th
-                           ="${stat.index}">
+            <input type="hidden" name="taskId" th:value="${stat.index}">
             <button type="submit">Complete</button>
         </form>
     </li>
 </ul>
 <a href="/">Back to home</a>
-
 </body>
 </html>

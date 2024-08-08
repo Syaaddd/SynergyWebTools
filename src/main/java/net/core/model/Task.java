@@ -1,28 +1,28 @@
 package net.core.model;
 
 public class Task {
-    private String description;
-    private boolean isCompleted;
 
-    public Task(String description) {
+    private String description;
+    private boolean completed;
+
+    public Task(String description, boolean completed) {
         this.description = description;
-        this.isCompleted = false;
+        this.completed = completed;
     }
 
     public String getDescription() {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public boolean isCompleted() {
-        return isCompleted;
+        return completed;
     }
 
-    public void complete() {
-        this.isCompleted = true;
-    }
-
-    @Override
-    public String toString() {
-        return (isCompleted ? "[X] " : "[ ] ") + description;
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }

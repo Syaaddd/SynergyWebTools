@@ -29,18 +29,14 @@ public class HomeController {
     }
 
     @PostMapping("/caesar/encrypt")
-    public String encrypt(@RequestParam String text,
-                          @RequestParam int shift,
-                          Model model) {
+    public String encrypt(@RequestParam String text, @RequestParam int shift, Model model) {
         String result = caesarCipherService.encrypt(text, shift);
         model.addAttribute("result", result);
         return "caesar";
     }
 
     @PostMapping("/caesar/decrypt")
-    public String decrypt(@RequestParam String text,
-                          @RequestParam int shift,
-                          Model model) {
+    public String decrypt(@RequestParam String text, @RequestParam int shift, Model model) {
         String result = caesarCipherService.decrypt(text, shift);
         model.addAttribute("result", result);
         return "caesar";
@@ -53,16 +49,14 @@ public class HomeController {
     }
 
     @PostMapping("/task/add")
-    public String addTask(@RequestParam String description,
-                          Model model) {
+    public String addTask(@RequestParam String description, Model model) {
         taskService.addTask(description);
         model.addAttribute("tasks", taskService.listTasks());
         return "task";
     }
 
     @PostMapping("/task/complete")
-    public String completeTask(@RequestParam int taskId,
-                               Model model) {
+    public String completeTask(@RequestParam int taskId, Model model) {
         taskService.completeTask(taskId);
         model.addAttribute("tasks", taskService.listTasks());
         return "task";
